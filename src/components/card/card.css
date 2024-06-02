@@ -1,0 +1,35 @@
+.profile-card {
+    width: 18rem;
+    height: 25rem; /* Set a fixed height */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .profile-card .card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .profile-card .card-text {
+    flex-grow: 1;
+    overflow: hidden;
+  }
+  
+  .profile-card .card-text.truncate {
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* Number of lines to show */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .profile-card .btn-link {
+    align-self: flex-start;
+    margin-top: auto;
+  }
+  
+  .profile-card .btn-primary {
+    align-self: flex-end;
+  }
+  

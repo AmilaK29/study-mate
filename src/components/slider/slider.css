@@ -1,0 +1,35 @@
+/* BestMatchesSlider.css */
+
+/* Optional: Customize slider appearance */
+.slick-slider {
+    margin: 0 auto;
+    width: 90%;
+  }
+  
+  /* Optional: Customize arrow buttons */
+  .slick-prev,
+  .slick-next {
+    z-index: 1;
+  }
+  
+  /* Add additional styling as needed */
+
+  /* slider.css */
+
+.slick-prev, .slick-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    cursor: pointer;
+  }
+  
+  .slick-prev {
+    left: 20px;
+  }
+  
+  .slick-next {
+    right: 20px;
+  }
+  
+  
