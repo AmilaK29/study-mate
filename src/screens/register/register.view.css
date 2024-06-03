@@ -1,0 +1,122 @@
+/* Label */
+.block {
+    display: block;
+}
+
+.mt-3 {
+    margin-top: .75rem;
+}
+
+.text-gray-500 {
+    --tw-text-opacity: 1;
+    color: rgba(107, 114, 128, var(--tw-text-opacity));
+}
+
+
+/*Input*/
+
+.w-full {
+    width: 90%;
+}
+.text-gray-900 {
+    --tw-text-opacity: 1;
+    color: rgba(17, 24, 39, var(--tw-text-opacity));
+}
+.px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.py-3 {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+}
+.mt-1 {
+    margin-top: .25rem;
+}
+.border {
+    border-width: 1px;
+}
+.rounded {
+    border-radius: .25rem;
+}
+.border-gray-200 {
+    --tw-border-opacity: 1;
+    border-color: rgba(229, 231, 235, var(--tw-border-opacity));
+}
+.bg-white {
+    --tw-bg-opacity: 1;
+    background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+}
+
+input {
+    line-height: inherit;
+    font-family: inherit;
+    font-size: 100%;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: auto;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-rendering: auto;
+}
+
+input[type="password" i] {
+    -webkit-text-security: disc !important;
+    padding-block: 1px;
+    padding-inline: 2px;
+}
+
+/* Container */
+.w-96 {
+    width: 48rem;
+}
+.shadow-2xl {
+    --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.p-12 {
+    padding: 3rem;
+}
+.border-t-8 {
+    border-top-width: 8px;
+}
+.rounded-sm {
+    border-radius: .125rem;
+}
+.border-indigo-600 {
+    --tw-border-opacity: 1;
+    border-color: rgba(79, 70, 229, var(--tw-border-opacity));
+}
+.bg-white {
+    --tw-bg-opacity: 1;
+    background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+}
+* {
+    --tw-ring-inset: var(--tw-empty);
+    --tw-ring-offset-width: 0px;
+    --tw-ring-offset-color: #fff;
+    --tw-ring-color: rgba(59, 130, 246, 0.5);
+    --tw-ring-offset-shadow: 0 0 #0000;
+    --tw-ring-shadow: 0 0 #0000;
+}
+
+div {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+body {
+    font-family: inherit;
+    line-height: inherit;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+
+

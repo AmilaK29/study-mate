@@ -227,6 +227,8 @@ button{
     text-rendering: auto;
 }
 
+/* hr */
+
 
 .hr-with-text {
     display: flex;

@@ -1,0 +1,59 @@
+/* Profile.css */
+
+.profile-container {
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .profile-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .welcome-message {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .user-details {
+    margin-top: 20px;
+  }
+  
+  .detail-label {
+    font-weight: bold;
+  }
+  
+  .detail {
+    margin-left: 10px;
+  }
+  
+  .subject-list {
+    list-style-type: none;
+    margin-top: 10px;
+    padding-left: 0;
+  }
+  
+  .subject-item {
+    margin-bottom: 5px;
+    font-style: italic;
+  }
+  
+  .subject-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .subject-table th, .subject-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .subject-table th {
+    background-color: #f2f2f2;
+  }
+  
