@@ -2,12 +2,46 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { Outlet } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import { Outlet,Link } from "react-router-dom";
+import { useNavigate , useLocation} from "react-router-dom";
+import { onAuthStateChanged , getAuth,signOut} from "firebase/auth";
+import { app } from "../../config/firebase";
+import { useEffect,useState } from "react";
 
 function NavBar() {
 
+  const location = useLocation();
+//   const {email} = location.state || {};
+
+  const [user, setUser] = useState(null);
+  const auth = getAuth(app);
+
+  const handleLogout = () => {
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful.
+        console.log('User signed out.');
+        navigate('/login'); // Redirect to login page
+      })
+      .catch((error) => {
+        // An error happened.
+        console.error('Error signing out: ', error);
+      });
+  };
+
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+
+    return () => unsubscribe();
+  }, [auth]);
+
+
   const navigate = useNavigate();  
+
   const hangleNameClick = () => {
     navigate("/profile",{state : {name : "Amila"}})
   }
@@ -29,11 +63,17 @@ function NavBar() {
               <Nav.Link href="/members">Members</Nav.Link>
             </Nav>
           </Navbar.Collapse>
-          <Navbar.Collapse className="justify-content-end">
+          {user ? null :<Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mx-auto custom-nav">
+              <Nav.Link href="/register">Join</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>}
+          {user ? <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
-              Signed in as: <Nav.Link onClick={hangleNameClick}>Amila</Nav.Link>
+              Signed in as: <Link to={`/profile/${user ? user.email : null}`} >{user ? user.email : null}</Link>
             </Navbar.Text>
-          </Navbar.Collapse>
+            <Button variant="outline-danger" onClick={handleLogout}>Logout</Button>
+          </Navbar.Collapse>:null}
         </Container>
       </Navbar>
       <Outlet />
