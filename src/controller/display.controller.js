@@ -54,17 +54,40 @@ export async function getTutorsForASubject(subject){
 
 export async function getSubjectsNeedsATutor(email){
     try {
+        const docRef = doc(db, "student", email);
+        const querySnapShot = await getDoc(docRef);
+        const subjects = [];
+
+        if(querySnapShot.exists()){
+            for(const subject of querySnapShot.data().subjects_needs_tutor){
+                subjects.push(subject);
+            }
+            return { status: true, data: subjects };
+        }
+        else{
+            return { status: true, data: subjects };
         
+        }
     } catch (error) {
-        
+        console.error("Error during fetching profile details:", error.message);
+        return { status: false ,data : []};
     }
 }
 
 export async function getTutorsForAStudent(email){
     try {
-        
+        const subjects = await getSubjectsNeedsATutor(email);
+        const tutors = [];
+        for(const subject of subjects.data){
+            const tutor = await getTutorsForASubject(subject);
+            for(const tutor_data of tutor.data){
+                tutors.push(tutor_data);
+            }
+        }
+        return { status: true, data: tutors };
     } catch (error) {
-        
+        console.error("Error during fetching tutors:", error.message);
+        return { status: false ,data : []}; 
     }
 }
 

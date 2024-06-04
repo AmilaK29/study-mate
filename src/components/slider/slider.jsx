@@ -47,12 +47,13 @@ const HorizontalSlider = ({ data }) => {
   return (
     <div className="best-matches-slider">
       <Slider {...settings}>
-        {data.gigs.map((gig, index) => (
+        {data.map((std, index) => (
           <div key={index} className="profile-card-container">
             <ProfileCard
-              Name={gig.Name}
-              Subject={gig.Subject}
-              Description={gig.Description}
+              Name={std.name}
+              Subject={'Front End Development'}
+              Faculty={std.faculty}
+              Department={std.department}
               className="profile-card"
             />
           </div>

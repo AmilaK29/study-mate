@@ -4,7 +4,7 @@ import FrontEndImg from '../../assets/Frontend.jpg';
 import { useState } from 'react';
 import "./card.css"
 
-function ProfileCard({Name,Subject,Description}) {
+function ProfileCard({Name,Subject,Faculty,Department}) {
     const [isExpanded, setIsExpanded] = useState(false);
     const toggleDescription = () => setIsExpanded(!isExpanded);
   
@@ -23,7 +23,7 @@ function ProfileCard({Name,Subject,Description}) {
         <Card.Body>
           <Card.Title>{Subject} by {Name}</Card.Title>
           <Card.Text className={isExpanded ? '' : 'truncate'}>
-            {Description}
+            {Faculty} - {Department}
           </Card.Text>
           {/* <Button variant="link" onClick={toggleDescription}>
             {isExpanded ? 'See Less' : 'See More'}
