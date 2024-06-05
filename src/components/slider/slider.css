@@ -1,5 +1,9 @@
 /* BestMatchesSlider.css */
-
+.best-matches-slider{
+    /* margin: 0 auto; */
+    width: 100%;
+  }
+  
 /* Optional: Customize slider appearance */
 .slick-slider {
     margin: 0 auto;
@@ -31,5 +35,8 @@
   .slick-next {
     right: 20px;
   }
+
   
+  
+
   
