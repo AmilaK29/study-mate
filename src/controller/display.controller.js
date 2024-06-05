@@ -42,6 +42,7 @@ export async function getTutorsForASubject(subject){
                 // console.log(subject_description.subject);
                 if(subject_description.subject === subject){
                     tutors.push(doc.data());
+                    break;
                 }
             }
         }
@@ -91,6 +92,36 @@ export async function getTutorsForAStudent(email){
     }
 }
 
+
+export async function getBestMatches(email){
+
+    try {
+
+       const subjects_knows = await getSubujectKnowsArray(email);
+       const subject_knows_array = subjects_knows.data.map(obj => obj.subject);
+
+       const tutors_response = await getTutorsForAStudent(email);
+       const tutors = tutors_response.data;
+
+       const best_matches = []
+
+       for(const tutor of tutors){
+           const tutor_wants_subjects = tutor.subjects_needs_tutor;
+           const intersection  = tutor_wants_subjects.filter(element => subject_knows_array.includes(element));
+              if(intersection.length > 0){
+                best_matches.push(tutor);
+              } 
+       }
+
+       return { status: true, data: best_matches };
+        
+    } catch (error) {
+
+        console.error("Error during fetching best matches:", error.message);
+        return { status: false ,data : []};
+        
+    }
+}
 
 
 
