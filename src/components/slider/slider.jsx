@@ -20,15 +20,15 @@ const HorizontalSlider = ({ data }) => {
       );
   const settings = {
     dots: true,
-    infinite: true,
+    infinite: data.length > 1,
     speed: 500,
-    slidesToShow: 4, // Number of slides to show at once
-    slidesToScroll: 1, // Number of slides to scroll at once
+    slidesToShow:  Math.min(data.length, 4), // Number of slides to show at once
+    slidesToScroll: data.length > 3 ? 1 : 0, // Number of slides to scroll at once
     responsive: [
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: Math.min(data.length, 2),
         },
       },
       {
@@ -38,8 +38,8 @@ const HorizontalSlider = ({ data }) => {
         },
       },
     ],
-    prevArrow: <PrevArrow />,
-    nextArrow: <NextArrow />
+    prevArrow: data.length > 3 ? <PrevArrow /> : null,
+    nextArrow: data.length > 3 ? <NextArrow /> : null
   };
 
   
